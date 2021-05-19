@@ -1,0 +1,19 @@
+#card{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 3rem;
+}
+#data{
+  width: 100px;
+}
+#moonLambo img{
+  height: 100px;
+  width: auto;
+}
+img{
+ 
+    width: 25px;
+    height: auto;
+
+}
