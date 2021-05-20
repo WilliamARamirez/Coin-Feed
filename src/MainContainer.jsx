@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CoinCard from './CoinCard.jsx';
 
 class MainContainer extends Component {
+ 
 
   constructor() {
     super();
@@ -18,7 +19,7 @@ class MainContainer extends Component {
         
         console.log('data' , data)
         this.setState({coinData :data})
-        console.log('coinData: ', coinData)
+        console.log('new coinData: ', coinData)
       })
       .catch((err)=> console.log('fetch error', err))
     }
@@ -29,20 +30,20 @@ render(){
 
   )
   for(let i = 0; i< this.state.coinData.length; i++){
-    coinArr.push(<CoinCard coinId={this.state.coinData[i].id} coinName={this.state.coinData[i].name} coinSymbol={this.state.coinData[i].symbol} coinImage={this.state.coinData[i].image} coinPrice={new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'USD' }).format(this.state.coinData[i].current_price)} coinMarketCap={
-      new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'USD' }).format(this.state.coinData[i].market_cap)
+    coinArr.push(<CoinCard coinId={this.state.coinData[i].id} coinName={this.state.coinData[i].name} coinSymbol={this.state.coinData[i].symbol} coinImage={this.state.coinData[i].image} coinPrice={new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.state.coinData[i].current_price)} coinMarketCap={
+      new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.state.coinData[i].market_cap)
       } coinAth={
-        new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'USD' }).format(this.state.coinData[i].ath)
+        new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.state.coinData[i].ath)
         } coin200d={
-          new Intl.NumberFormat('en-IN', { style: 'percent'}).format(this.state.coinData[i].price_change_percentage_200d_in_currency)
+          new Intl.NumberFormat('en-US', { style: 'percent'}).format(this.state.coinData[i].price_change_percentage_200d_in_currency)
           }/>
 
     )
   }
   return(
     <div>
-
-      {coinArr}
+      <h1>This the main container component!</h1>
+      {coinArr}    
     </div>
   )
 }
